@@ -5,10 +5,11 @@ const workWeeks = JSON.parse(JSON.stringify(weeks));
 
 const queue = [];
 
-workWeeks.forEach(week => {
+workWeeks.forEach((week,i) => {
   week.net = week.home.length - week.away.length;
   const workObj = {
-    excess: week.net
+    excess: week.net,
+    week: i
   };
   if(week.net > 0){
     workObj.teams = week.home;
