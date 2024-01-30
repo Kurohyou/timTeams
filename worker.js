@@ -4,7 +4,7 @@ export const dig = (queue,week14 = {away:[],home:[]},teamCounts = {},origQueue) 
   queue.sort((a,b) => (a.teams.length - Math.abs(a.excess)) - (b.teams.length - Math.abs(b.excess)));
   const toRemove = [];
   const workObj = queue.shift();
-  if(workObj.excess && workObj.excess <= workObj.teams.length){
+  if(Math.abs(workObj.excess) <= workObj.teams.length){
     // for each excess, pull out one of the teams from this array
     [...Array(Math.abs(workObj.excess)).keys()].forEach(()=> {
       const stat = workObj.excess > 0 ?
